@@ -1,30 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/aac4fe91c8.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&family=Indie+Flower&family=La+Belle+Aurore&family=Lilita+One&display=swap"
+        rel="stylesheet">
     <title>Shopping List</title>
     <link rel="stylesheet" href="styles.css">
 </head>
-<body>
-    <header>
-        <h1>Shopping List</h1>
-    </header>
 
+<body>
     <main>
+        <h2>Shopping List</h2>
         <section>
-            <h2>Your Items</h2>
-            <div>
-                <input type="text" id="item-input" placeholder="Add a new item">
-                <button id="add-button">Add</button>
+            <div id="input-container">
+                <input type="text" id="item-input" placeholder="Add a new item" maxlength="50">
+                <button id="add-button"><i class="fa-solid fa-plus"></i></button>
             </div>
-            <ul id="shopping-list">
-                <li></li>
-            </ul>
+            <ol id="shopping-list">
+            </ol>
         </section>
+        <div id="info-1">
+            <p>Enter a value and click/tap the + button or press "Enter".</p>
+            <p>Enter Latin letters only.</p>
+        </div>
+        <div id="info-2">
+            <p>Click/tap an item to mark it as completed (line-through).</p>
+            <p>Click/tap <i class="fa-regular fa-circle-xmark" style="color: #7d5b21;"></i> to remove it.</p>  
+        </div>          
     </main>
 
     <script src="script.js"></script>
 </body>
+
 </html>
