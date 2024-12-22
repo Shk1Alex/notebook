@@ -73,3 +73,10 @@ h2 {
 #info-1 p {
     margin-bottom: 1.5625rem; /* 25px ≈ 1.5625rem */
 }
+
+@media (max-width: 768px) {
+    body {
+        height: 100vh;
+        overflow: hidden;
+    }
+}
