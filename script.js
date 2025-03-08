@@ -1,17 +1,36 @@
 $('#item-input').on('input', function () {
-    // только латинские
-    $(this).val($(this).val().replace(/[^a-zA-Z\s]/g, ''));
+    // латинские и кириллические символы
+    $(this).val($(this).val().replace(/[^a-zA-Zа-яА-Я\s]/g, ''));
 });
 
+function saveList() {
+    var items = [];
+    $('ol li').each(function() {
+        items.push($(this).text().trim());
+    });
+    localStorage.setItem('shoppingList', JSON.stringify(items));
+}
+
+function loadList() {
+    var items = JSON.parse(localStorage.getItem('shoppingList'));
+    if (items) {
+        items.forEach(function(item) {
+            $('ol').append('<li>' + item + 
+                '<span><i class="fa-regular fa-circle-xmark" style="color: #7d5b21;"></i></span></li>');
+        });
+    }
+}
 
 $('ol').on('click', 'li', function () {
     $(this).toggleClass('done');
+    saveList();
 })
 
 $('ol').on('click', 'span', function (event) {
     event.stopPropagation();
     $(this).parent().fadeOut(function () {
         $(this).remove();
+        saveList();
     });
 })
 
@@ -34,7 +53,8 @@ $('input').keypress(function(event) {
             $(this).val('');
             $('ol').append('<li>' + itemText + 
                 '<span><i class="fa-regular fa-circle-xmark" style="color: #7d5b21;"></i></span></li>'); // иконка удаления
-         hideinfo1(); // Скрытие info-1
+            hideinfo1(); // Скрытие info-1
+            saveList();
         } else if ($('ol li').length >= 23) {
             alert('Достигнут предел количества элементов (23).');
         }
@@ -47,15 +67,19 @@ $('#add-button').on('click', function() {
         $('#item-input').val('');
         $('ol').append('<li>' + itemText + 
             '<span><i class="fa-regular fa-circle-xmark" style="color: #7d5b21;"></i></span></li>'); // иконка удаления
-     hideinfo1(); // Скрытие info-1
+        hideinfo1(); // Скрытие info-1
+        saveList();
     } else if ($('ol li').length >= 23) {
         alert('Достигнут предел количества элементов (23).');
     }
 });
 
-
 $('h2 span').click(function () {
     $('input').fadeToggle();
 })
+
+$(document).ready(function() {
+    loadList();
+});
 
 

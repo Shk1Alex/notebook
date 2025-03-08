@@ -26,11 +26,11 @@ h2 {
 }
 
 #shopping-list {
-    margin-top: 2.5rem; /* 40px ≈ 2.5rem */
+    margin-top: 2.7rem; /* 40px ≈ 2.5rem */
     margin-left: 1.5625rem; /* 25px ≈ 1.5625rem */
     padding: 0;
-    font-family: "Indie Flower", serif;
-    font-weight: 400;
+    font-family: "Caveat", serif;
+    font-weight: 600;
     font-style: normal;
 }
 
@@ -54,6 +54,7 @@ h2 {
     font-optical-sizing: auto;
     font-weight: normal;
     font-style: normal;
+    font-family: "Comfortaa", "Arial", sans-serif;
 }
 
 #info-2, #info-1 {
